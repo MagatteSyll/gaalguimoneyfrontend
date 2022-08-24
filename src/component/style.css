@@ -1,0 +1,387 @@
+/*footer du desktop*/
+.footer {
+    position: relative;
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+ 
+.recucol{
+    margin-left: 170px;
+}
+.recutext{
+    margin-left: 40px;
+}
+.cartsignature{
+    margin-left: 500px;
+}
+.divrecumobile{
+  margin-left: 15px;
+}
+.linksocial{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.iconsocial{
+  zoom: 1.5;
+}
+.cartaccueiltaux {
+  width: 50%;
+
+}
+#btnpaginate{
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.navoff{
+  border-bottom: 1px solid gray;
+}
+/*stylisation sidebar*/
+ .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    position: absolute;
+    height: 600px;
+    overflow: auto;
+    width: 25%;
+  }
+/*page sur desktop avec sidebar*/
+.displayside{
+  width: 100%;
+  margin-left: 25%;
+  height: 600px;
+  position: relative;
+
+}
+/*Stylisation affichage mobile et desktop*/
+@media screen and (max-width: 599px){
+  .desk{
+    display: none;
+  }
+  .sidebar{
+    display: none;
+  }
+  .displayside{
+     width: 100%;
+     margin-left: 0%;
+  }
+  .footer{
+    display: none;  
+  }
+ .mobile {
+    height: 100%;
+    overflow: auto;
+   
+  }
+  
+}
+@media screen and (min-width: 600px){
+  .mobile{
+    display: none;
+  }
+  .desk {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+   
+  }
+
+  
+}
+ 
+
+  /*Stylisation du segment de la page officielle*/
+  @media screen and (max-width: 700px) {
+    
+     /*Stylisation du segment */
+  
+     /*Stylisation du button toggle*/
+    #toggle {
+      display: initial;
+   
+    }
+   
+  }
+  
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.foot{
+  position:relative;
+}
+
+
+
+/*Side bar de la connexion et de l incription*/
+.sideconnexion {
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  
+}
+
+.carousellog{
+  height:600px;
+  margin-left: 25%;
+}
+.noflow{
+  overflow-x: hidden;
+}
+.imgcarousellog{
+  width: 100%;
+  height: 600px;
+}
+.redstyle{
+  color:red;
+}
+.centerbtn{
+  text-align: center;
+}
+.link{
+ /* text-decoration: none;*/
+  color: black;
+}
+.btndrop{
+  background: none;
+  border: none;
+}
+.btnnav{
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.segmentnavmobile{
+  background: none;
+  border: none;
+}
+
+.nodecolink{
+  text-decoration: none;
+  color: inherit;
+}
+.segment{
+  margin-top: 10px;
+}
+
+.divcarousel{
+  margin-top: 20px;
+}
+.imgcarousel{
+  width: 100%;
+  height: 350px;
+}
+.footerofficiel{
+  border-top: 1px solid gray;
+
+}
+
+.linkfootofficiel{
+  text-decoration: none;
+  color: black;
+}
+.nodecoul{
+   list-style-type: none;
+}
+
+.iconsocialfoot{
+  zoom: 2;
+}
+
+.divaciton{
+  width: 30%;
+}
+.marginaction{
+  margin-left: 40px;
+}
+.formdepot{
+  width: 60%;
+}
+.divform{
+  margin-left:30%;
+}
+.marginselect{
+  margin-left: 10%;
+}
+.qrcodedive{
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 30px;
+}
+.imgqrcode{
+  width: 400px;
+  height: 400px;
+}
+.widthlogo{
+  width: 30%;
+}
+.bluestyle{
+  color: blue;
+}
+.greenstyle{
+  color: green;
+}
+.purplestyle{
+  color: purple;
+}
+.pinkstyle{
+  color: magenta;
+}
+.logopay{
+  width: 100px;
+  height: 100px;
+}
+.formpay{
+  width: 60%;
+  margin-left: 20%;
+ 
+}
+.labmontant{
+  margin-right: 15px;
+}
+.formbusiness{
+  margin-left: 200px;
+}
+.pselect{
+  width: 100%;
+}
+.imglogo{
+  width: 250px;
+  height: 250px;
+}
+.imglogosuspension{
+  width: 20px;
+  height: 20px;
+}
+.imgsuccesslogopay{
+  width: 50px;
+  height: 40px;
+}
+.blanc{
+  color: white;
+}
+.btncompte{
+  background: none;
+  border: none;
+  color: white;
+}
+.secondstyle{
+  color: #d500f9;
+}
+.blanc{
+  color: white;
+}
+.buttonmenu{
+  border: none;
+  background: none;
+}
+
+.inputphone{
+  width: 100%;
+}
+.rosestyle{
+  color: #fc03ba;
+}
+.imgservicepay{
+  height: 70px;
+  width: 30px;
+}
+.orangestyle{
+  color: #FFA500;
+}
+.darkmagentastyle{
+  color: #8B008B;
+}
+.logoimgdesk{
+    width: 100px;
+    height: 50px;
+    border-radius: 20%;
+}
+.logomargin{
+  margin-left: 40px;
+}
+.logoimglogin{
+   width: 30px;
+   height: 20px;
+    border-radius: 10%;
+}
+.logoimgloginmobile{
+   width: 20px;
+   height: 10px;
+  border-radius: 10%;
+
+}
+.logocolor{
+  color: #4B0082;
+}
+.redstyle{
+  color: red;
+}
+.asterix{
+  color: red;
+}
+.btndrop{
+  background: none;
+  border: none;
+}
+.formchangepassword{
+  width: 80%;
+}
+.cardenvoi{
+  width: 90%;
+  margin-left:5% ;
+  margin-right: 5%;
+}
+.cardsuccesstransaction{
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: green;
+  color: white;
+}
+.cardverificationtransaction{
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #4B0082;
+  color: white;
+}
+.cardsuccesstransactionmobile{
+  background-color: green;
+  color: white; 
+}
+
+.formenvoi{
+ margin-left:5% ;
+ margin-right: 5%; 
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.greenstyle{
+  color: green;
+}
+.divpagination{
+    margin-left: 30%;
+    margin-top: 20px;
+}
+.hmargin{
+  margin-left: 80px;
+  margin-top: 40px;
+}
