@@ -14,6 +14,7 @@ return (
  <h5>Numéro de téléphone du bénéficiaire <strong>{transaction.phone_destinataire}</strong></h5>
  <h5> Montant à  envoyer <strong>{transaction.somme} CFA </strong></h5>
  <h5>Commission <strong> {transaction.commission} CFA</strong> </h5>
+ <h5>Montant total <strong> {transaction.total} CFA</strong> </h5>
   <p>
   <button className='w3-button w3-green w3-margin' onClick={confirmation}>Confirmer</button>
  </p>

@@ -3,6 +3,7 @@ import axiosInstance from '../axios'
 import ConfirmationEnvoiDirectDesk from '../component/desktop/ConfirmationEnvoiDirectDesk'
 import {Link,useHistory} from 'react-router-dom'
 import ConfirmationEnvoiDirectMobile from '../component/mobile/ConfirmationEnvoiDirectMobile'
+import axios from 'axios'
 
 
 
@@ -27,8 +28,14 @@ function ConfirmationEnvoiDirect(props){
     	})
     }
  const confirmation=()=>{
+  axios
+ .put('http://127.0.0.1:8000/api/client/envoyerdirect/envoyerdirectement/',{id:id},
+    {headers:{
+  'Authorization': `JWT ${localStorage.getItem('__jmdf__')}`
+    }})
+  /*
   axiosInstance
-  .put('client/envoyerdirect/envoyerdirectement/',{id:id})
+  .put('client/envoyerdirect/envoyerdirectement/',{id:id})*/
   .then(res=>{
     getuser()
      history.push(`/successenvoi/${res.data.id}/${res.data.nature}`)
@@ -38,7 +45,7 @@ const annulation=()=>{
   axiosInstance
   .put('client/envoyerdirect/annulationenvoi/',{id:id})
   .then(()=>{
-    history.go(-2)
+    history.goBack()
   })
 }
 return(

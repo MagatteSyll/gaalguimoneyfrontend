@@ -4,6 +4,11 @@ import { IonText,IonModal,IonIcon, IonGrid, IonRow, IonCol, IonCard } from '@ion
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PhoneInput from 'react-phone-number-input'
 import Button from '@mui/material/Button';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 
 function EnvoiCodeMobile({retour,handledata,handlepaste,handlekeypress,handlephone,data,Confirmation}) {
@@ -15,6 +20,19 @@ return(
   <h3><strong>Envoi via code  GaalguiMoney </strong></h3>
    <IonGrid>
     <IonRow>
+    <IonCol size='12'>
+    <FormControl>
+    <FormLabel id="demo-radio-buttons-group-label">Commission</FormLabel>
+    <RadioGroup
+    aria-labelledby="demo-radio-buttons-group-label"
+    defaultValue="non inclus"
+    name="nature"
+     onChange={handledata}>
+    <FormControlLabel value="non inclus" control={<Radio />} label="Non incluse" />
+    <FormControlLabel value="inclus" control={<Radio />} label="Incluse" />
+  </RadioGroup>
+</FormControl>
+    </IonCol>
     <IonCol size='12'>
     <IonCard  >
     <form className='container' onSubmit={Confirmation}> 

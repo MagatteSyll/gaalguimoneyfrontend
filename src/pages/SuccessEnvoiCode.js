@@ -13,10 +13,8 @@ function SuccessEnvoiCode() {
     const history=useHistory()
 
     useEffect(()=>{
-        let formdta=new FormData()
-        formdta.append('id',id)
         axiosInstance
-        .post('client/recucode/',formdta)
+        .post('client/recucode/',{'id':id})
         .then(res=>{
             
             setrecu(res.data)

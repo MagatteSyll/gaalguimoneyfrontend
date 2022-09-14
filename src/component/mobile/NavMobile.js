@@ -22,7 +22,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 //Navmobile
 const  NavMobile =({user,handleparametre,handlehome,handlepop,deconnexion,openbusiness, openprofessionel,
-    handlecode,notifbusiness,notifpro})=>{
+    handlecode,notifbusiness,notifpro})=>{ 
 
  const [value, setValue] = React.useState(0);
 
@@ -65,7 +65,8 @@ const  NavMobile =({user,handleparametre,handlehome,handlepop,deconnexion,openbu
         }
     {user.professionnel?
         <IonCol size='4'>
-    <button className=" btndrop btnnav " onClick={handlecode} > <QrCodeIcon className='secondstyle'/></button>
+    <button className=" btndrop btnnav " onClick={handlecode} > 
+    <QrCodeIcon className='secondstyle'/></button>
     <button className=" btndrop btnnav " onClick={openprofessionel} >
     <Badge badgeContent={notifpro.length} color="error" max={10}>
      <NotificationsIcon  />
@@ -87,9 +88,13 @@ const  NavMobile =({user,handleparametre,handlehome,handlepop,deconnexion,openbu
          <button  className="btndrop btnnav ">
         <LocalOfferIcon sx={{ color: pink[500] }}/>Nouveautes</button>
         </IonCol>
-         <IonCol size='4'>
-          
-        </IonCol>
+        {user.document_verif?
+        <IonCol size='4'>
+         <button className=" btndrop btnnav "
+          onClick={handlecode}
+          > 
+        <QrCodeIcon className='secondstyle'/></button>  
+        </IonCol>:null}
         </IonCol>
         <IonCol size='12'>
      <Swiper

@@ -4,6 +4,7 @@ import { useHistory,Link } from 'react-router-dom';
 import {toast } from 'react-toastify'
 import EnvoiCodeDesk from '../component/desktop/EnvoiCodeDesk'
 import EnvoiCodeMobile from '../component/mobile/EnvoiCodeMobile'
+import axios from 'axios'
 
 
 
@@ -13,7 +14,8 @@ function EnvoiViaCode(props) {
     const  [data, setdata] = useState({
         phone:'',
         somme:'',
-        nom:''
+        nom:'',
+        nature:"non inclus"
     })
     const handlephone=e=>{
         setdata({
@@ -45,26 +47,37 @@ function EnvoiViaCode(props) {
   
 const Confirmation=e=>{
         e.preventDefault()
-        if(data.phone===""||data.phone<11)
+        if(data.phone===""||data.phone===null)
         {
           errtel()
           return;
         }
-        if(data.nom===""||data.nom.match(/^ *$/)!== null){
+        if(data.nom.trim()===""||data.nom===null){
            errnom()
            return;
         }
-        if(data.somme===""||data.somme<=0){
+        if(data.somme.trim()===""||data.somme<=0){
             novalidnan()
             return;
         }
         let formdata=new FormData()
-        const phone="+"+data.phone
-        formdata.append('phone',phone)
+        formdata.append('phone',data.phone)
         formdata.append('somme',data.somme)
         formdata.append('nom',data.nom)
-        axiosInstance
-        .post('client/verificationviacode/',formdata)
+        formdata.append('nature',data.nature)
+         axios
+      .post('http://127.0.0.1:8000/api/client/verificationviacode/',{
+        phone:data.phone,
+        somme:data.somme,
+        nom:data.nom,
+        nature:data.nature
+      },
+       {headers:{
+       'Authorization': `JWT ${localStorage.getItem('__jmdf__')}`
+          }})
+       // axiosInstance
+       // .post('client/verificationviacode/',formdata)
+
         .then(res=>{
           history.push(`/confirmationenvoicode/${res.data.id}/${res.data.nom}`)
             

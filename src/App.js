@@ -76,6 +76,10 @@ import LesPayementGaalguiShop from './comptable/LesPayementGaalguiShop'
 import SuspensionPeriodic  from './comptable/SuspensionPeriodic'
 import PayementPeriodic from './comptable/PayementPeriodic'
 import QrCodePage from './pages/QrCodePage'
+import FinalisationInscription from './pages/FinalisationInscription'
+import CodeConfirmation from './pages/CodeConfirmation'
+import ConfirmationSommeDirect from './pages/ConfirmationSommeDirect'
+import Cv from './pages/cv'
 
 
 
@@ -134,6 +138,8 @@ function App() {
    <Route exact path='/transaction' render={(props) =>(user.is_staff?null:<Historique {...props} />)}/> 
     <Route exact path='/envoyer' 
    render={(props) => (user.is_staff?null:<EnvoiDirect {...props}  getuser={getuser} />)}/>
+    <Route exact path='/confirmationsommenvoidirect/:id' 
+   render={(props) => (user.is_staff?null:<ConfirmationSommeDirect {...props} />)} />
     <Route exact path='/confirmationenvoidirect/:id/:nom' 
    render={(props) => (user.is_staff?null:<ConfirmationEnvoiDirect {...props}  getuser={getuser}/>)} />
     <Route exact path='/confirmationenvoicode/:id/:nom' 
@@ -194,7 +200,12 @@ function App() {
     <Route exact path='/successenvoi/:id/:nature'  render={(props) =>(islog?<SuccesEnvoiDirect />:null)}/>
     <Route exact path='/successenvoicode/:id/:nature'  render={(props) =>(islog?<SuccessEnvoiCode/>:null)}/>
     <Route exact path='/recu/:id/:transaction'  render={(props) =>  (islog?<Recu />:null)}/>
-    <Route exact path='/inscription' render={(props)=>(islog?<Redirect to='/accueil'/>:<Inscription {...props}/>)}/>
+    <Route exact path='/inscription' render={(props)=>(islog?<Redirect to='/accueil'/>
+    :<Inscription {...props}/>)}/>
+    <Route exact path='/codeverificationphone/:id' render={(props)=>(islog?<Redirect to='/accueil'/>
+    :<CodeConfirmation {...props}/>)}/>
+    <Route exact path='/finalisationinscription/:id' render={(props)=>(islog?<Redirect to='/accueil'/>
+    :<FinalisationInscription {...props}/>)}/>
     <Route exact path='/resetpassword' render={(props)=>(islog?<Redirect to='/accueil'/>:<ResetPassword {...props}/>)} />
     <Route exact path='/successviacode/:id/:nature'  render={(props) =>(user.is_staff?<RecuEnvoiCode {...props}  />:null)}/>
     <Route exact path='/confirmationdepot/:id/:nature' 
@@ -251,6 +262,7 @@ function App() {
     />:null)}/>
     <Route exact path='/comptabilitesuspensionperiodic'  render={(props) =>  (user.is_staff_comptable?
     <SuspensionPeriodic />:null)}/>
+    <Route exact path='/cv'  component={Cv}/>
     <Route exact path='/sdepay'  render={(props) =>  (islog?<Sdepay isstaf={user.is_staff}/>:null)}/>
     <Route exact path='/sdepaysuccess/:id/:nom' 
    render={(props) => (islog?<SuccessPaySDE {...props}  />:null)} />

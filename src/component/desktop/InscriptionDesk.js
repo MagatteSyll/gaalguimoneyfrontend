@@ -18,8 +18,7 @@ import Button from '@mui/material/Button';
  
 
 
-function InscriptionDesk({handleSubmit,handledata,showpasswordcon,showpassword,
-   setshowpasswordcon,setshowpassword,classes,data,handlephone}) {
+function InscriptionDesk({handleSubmit,classes,data,handlephone}) {
    
     return (
         <div className='desk '>
@@ -37,7 +36,50 @@ function InscriptionDesk({handleSubmit,handledata,showpasswordcon,showpassword,
 					S inscrire
 				</Typography>
 				<form   onSubmit={handleSubmit}>
-				 <label className='centerbtn'><b>Prenom<IonText className="asterix">*</IonText></b></label>
+				<p>
+				<label className='centerbtn'><b>Numero de telephone valide<IonText className="asterix">*
+				</IonText></b></label>
+				</p>
+				<p>
+				 <PhoneInput
+	            countries={["SN"]}
+	            defaultCountry="SN"
+	            addInternationalOption={false}
+	            className="w3-input w3-border"
+	            value={data.phone}
+	            name='phone'
+	            onChange={handlephone}/>
+					</p>
+					
+			<p className='centerbtn'>
+			 <Button
+			   type="submit"
+            style={{
+            color:"white",
+            backgroundColor: "#4B0082",}} variant="contained" >
+           Valider </Button></p>
+			<p> Vous avez deja un compte?<Link className='link logocolor' to='/connexion' variant="body2">
+			Se connecter
+			</Link></p>		
+			</form>
+		</div>
+        </Container>
+		</IonCard>
+		</div> 
+		<div className='noflow carousellog'> 
+      <CarouselLog/>
+      </div>
+	   </Fragment> 
+        </div>
+    )
+}
+
+export default InscriptionDesk
+
+
+{
+/*
+ <label className='centerbtn'><b>Prenom<IonText className="asterix">*</IonText></b></label>
 					<p>
 					  <Input
 						className="w3-input w3-border" 
@@ -63,19 +105,8 @@ function InscriptionDesk({handleSubmit,handledata,showpasswordcon,showpassword,
 					   placeholder="nom"
 						onChange={handledata}
 					/>
-					</p>
-					<label className='centerbtn'><b>Numero de telephone valide<IonText className="asterix">*</IonText></b></label>
-					<p>
-					 <PhoneInput
-	            countries={["SN"]}
-	            defaultCountry="SN"
-	            addInternationalOption={false}
-	            className="w3-input w3-border"
-	            value={data.phone}
-	            name='phone'
-	            onChange={handlephone}/>
-					</p>
-						
+			
+	
 					<label className='centerbtn'><b>Mot de passe<IonText className="asterix">*</IonText></b></label>
 					<p>
 					   <Input
@@ -113,27 +144,9 @@ function InscriptionDesk({handleSubmit,handledata,showpasswordcon,showpassword,
 						onChange={handledata}
 						placeholder="*********"	/>
 					</p>
-			<p className='centerbtn'>
-			 <Button
-			   type="submit"
-            style={{
-            color:"white",
-            backgroundColor: "#4B0082",}} variant="contained" >
-           Inscription </Button></p>
-			<p> Vous avez deja un compte?<Link className='link logocolor' to='/connexion' variant="body2">
-							Se connecter
-			</Link></p>		
-			</form>
-		</div>
-        </Container>
-		</IonCard>
-		</div> 
-		<div className='noflow carousellog'> 
-      <CarouselLog/>
-      </div>
-	   </Fragment> 
-        </div>
-    )
-}
 
-export default InscriptionDesk
+
+					*/
+
+
+}

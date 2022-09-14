@@ -7,6 +7,7 @@ import {toast } from 'react-toastify'
 import Divider from '@mui/material/Divider';
 import logo from '../component/asset/logo.jpg'
 import Button from '@mui/material/Button';
+import axios from 'axios'
 
 
 function ConfirmationActivation(props){
@@ -51,10 +52,17 @@ function ConfirmationActivation(props){
   	}
   axiosInstance
   .post('staff/activationduclient/',{id:id,nature:data.nature,numero:data.numero})
+ //axios
+    //.post('http://127.0.0.1:8000/api/staff/activationduclient/',
+     // {id:id,nature:data.nature,numero:data.numero},
+   // {headers:{
+ // 'Authorization': `JWT ${localStorage.getItem('__jmdf__')}`
+  //  }})
   .then(res=>{
-     history.push('/accueil')
+   // console.log(res.data)
+    history.push('/accueil')
      notify()
-  })
+  }) 
   .catch(()=>{
   	erreur()
   	return;

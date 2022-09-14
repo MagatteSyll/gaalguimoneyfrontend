@@ -16,6 +16,7 @@ function ConfirmationEnvoiCodeDesk({transaction,confirmation,annulation,}) {
  <h3>Numéro de téléphone du bénéficiaire <strong>{transaction.phone_destinataire}</strong></h3>
  <h3> Montant à  envoyer <strong>{transaction.somme} CFA </strong></h3>
  <h3>Commission <strong> {transaction.commission} CFA</strong> </h3>
+ <h3>Montant total <strong> {transaction.total} CFA</strong> </h3>
   <p>
   <button className='w3-button w3-green w3-margin' onClick={confirmation}>Confirmer</button>
  </p>

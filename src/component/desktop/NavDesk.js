@@ -17,7 +17,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 //Navigation sur desktop
 function NavDesk({user,handleparametre,handlehome,deconnexion,openbusiness, openprofessionel,
-    notifbusiness,notifpro,handlecode}) {
+    notifbusiness,notifpro,handlecode,getnotification,badgenotif}) {
    
  
     return (
@@ -35,7 +35,7 @@ function NavDesk({user,handleparametre,handlehome,deconnexion,openbusiness, open
         <button  className="btndrop btnnav ">
         <LocalOfferIcon sx={{ color: pink[500] }} />Nouveautes</button>
         <button className=" btndrop btnnav " > <MonetizationOnIcon color="success"/>GaalguiMoneyBusiness</button> 
-        {user.business?
+    {/*   {user.business?
     <>
     <button className=" btndrop btnnav " onClick={handlecode}> <QrCodeIcon color="secondary"/></button>
     <button className=" btndrop btnnav "  onClick={openbusiness}> 
@@ -57,13 +57,24 @@ function NavDesk({user,handleparametre,handlehome,deconnexion,openbusiness, open
      </>
      :null
         }
+    */}
 
-        </IonCol>
-        <IonCol size='1'>
-         <button className='btndrop btnnav  w3-right' title='deconnexion' onClick={ deconnexion}> <ArrowCircleRightIcon /></button>
-        </IonCol>
-        {user.document_verif?null:
-            <h3 className='redstyle'>Rendez vous avec vos documents(passports ou piece d identite)  au point d acces le plus proche pour activer votre compte <SentimentSatisfiedAltIcon/></h3>
+    <button className=" btndrop btnnav " onClick={getnotification} > 
+    <Badge badgeContent={badgenotif} color="error" max={10}>
+    <NotificationsIcon  color="action"/>
+    </Badge>
+    </button>
+    {user.document_verif?
+         <button className=" btndrop btnnav "
+          onClick={handlecode}
+          > 
+        <QrCodeIcon className='secondstyle'/></button>:null}
+     </IonCol>
+    <IonCol size='1'>
+    <button className='btndrop btnnav  w3-right' title='deconnexion' onClick={ deconnexion}> <ArrowCircleRightIcon /></button>
+     </IonCol>
+    {user.document_verif?null:
+    <h3 className='redstyle'>Rendez vous avec vos documents(passports ou piece d identite)  au point d acces le plus proche pour activer votre compte <SentimentSatisfiedAltIcon/></h3>
         }
         </IonRow>
         </IonGrid> 

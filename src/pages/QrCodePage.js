@@ -1,6 +1,7 @@
 import React,{useState,useEffect,Fragment} from 'react'
 import { Document, Page,Image,StyleSheet,PDFViewer,View }  from "@react-pdf/renderer";
 import axiosInstance from '../axios'
+import axios from 'axios'
 
 
 
@@ -34,10 +35,16 @@ function QrCodePage(){
 		getqrcode()
 	},[])
 	const getqrcode=()=>{
-	axiosInstance
-	.get('pay/getrcode/')
+    axios
+    .get('http://127.0.0.1:8000/api/client/getuserqrcode/',
+    {headers:{
+  'Authorization': `JWT ${localStorage.getItem('__jmdf__')}`
+    }})
+	//axiosInstance
+	//.get('client/getuserqrcode/')
 	.then(res=>{
-		setqrcode(res.data)
+    console.log(res.data)
+		setqrcode(res.data.qrcode)
 		setload(true)
 	})
 
@@ -50,8 +57,8 @@ return(
       <Document>
         <Page size="A4" style={styles.page}>
           <Image  style={styles.image}
-       src={`http://127.0.0.1:8000${qrcode.code}`} 
-//src={`https://gaalguimoney.herokuapp.com${qrcode.code}`}
+       //src={`http://127.0.0.1:8000${qrcode}`} 
+src={`https://gaalguimoney.herokuapp.com${qrcode}`}
  alt='' />
          
         </Page>

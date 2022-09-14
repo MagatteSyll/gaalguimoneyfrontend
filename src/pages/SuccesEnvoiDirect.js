@@ -16,10 +16,8 @@ function SuccesEnvoiDirect() {
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(()=>{
-        let formdta=new FormData()
-        formdta.append('id',id)
         axiosInstance
-        .post('client/recudirect/',formdta)
+        .post('client/recudirect/',{'id':id})
         .then(res=>{
             setrecu(res.data)
             setload(true)
@@ -27,7 +25,7 @@ function SuccesEnvoiDirect() {
 
     },[])
    const retour=()=>{
-    history.go(-3)
+    history.go(-4)
    }
 
     return (

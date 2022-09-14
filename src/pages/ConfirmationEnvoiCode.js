@@ -39,7 +39,7 @@ const annulation=()=>{
   axiosInstance
   .put('client/envoyerdirect/annulationenvoi/',{id:id})
   .then(()=>{
-    history.go(-2)
+    history.goBack()
   })
 }
 

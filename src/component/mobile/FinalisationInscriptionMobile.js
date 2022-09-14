@@ -13,61 +13,21 @@ import PhoneInput from 'react-phone-number-input'
 import Button from '@mui/material/Button';
 
 
-const  InscriptionMobile = ({handleSubmit,classes,handlephone,data})=> {
 
-    
 
-    return (
-      <div className='mobile'>
-           <h3 className='mt-3 ml-3'>
-           <img src={logo} className='logoimglogin'/> <strong> GaalguiMoney</strong>
+function FinalisationInscriptionMobile({handledata,handlesubmit,
+	handlekeypress,handlepaste,classes,showpassword,setshowpassword,}) {
+	
+return (
+  <div className='mobile'>
+  <h3 className='mt-3 ml-3'>
+           <img src={logo} className='logoimglogin'/> <strong> Donnees personnelles</strong>
             </h3>
            <Avatar className={classes.avatar}></Avatar>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handlesubmit} >
             <IonGrid>
             <IonRow >
-          <IonCol  size="10" className="container">
-          <p>  <label><b>Numero de telephone valide<IonText className="asterix">*</IonText></b></label>
-          </p>
-            <p>
-           <PhoneInput
-            countries={["SN"]}
-            defaultCountry="SN"
-            addInternationalOption={false}
-            className="w3-input  w3-margin"
-            value={data.phone}
-            name='phone'
-            onChange={handlephone}/>
-            </p>
-            </IonCol>
             <IonCol  size="10" className="container">
-             <p className='centerbtn'> 
-              <Button
-               type="submit"
-               style={{
-               color:"white",
-               backgroundColor: "#4B0082",}} variant="contained" >
-               Valider </Button>
-            </p>
-              <br/><br/>
-              <p> Vous avez deja un compte?<Link className='link logocolor' to='/connexion' variant="body2">
-             Se connecter
-            </Link></p> 
-             </IonCol>
-               </IonRow>
-               </IonGrid>
-               </form>
-           <CarouselLog/> 
-       </div>
-    )
-}
-
-export default InscriptionMobile
-
-
-{
-    /*
-     <IonCol  size="10" className="container">
             <p><label><b>Prenom<IonText className="asterix">*</IonText></b></label></p>
              <p>
              <Input
@@ -100,12 +60,14 @@ export default InscriptionMobile
 
 
              <IonCol  size="10" className="container">
-           <p>  <label><b>Mot de passe<IonText className="asterix">*</IonText></b></label></p>
+           <p>  <label><b>Mot de passe(5 chiffres)<IonText className="asterix">*</IonText></b></label></p>
                     <p>
                        <Input
                         className="w3-input w3-border" 
                         required
                         fullWidth
+                        onPaste={handlepaste}
+				        onKeyPress={handlekeypress}
                         id="password"
                         type={showpassword?'text':'password'}
                         name="password"
@@ -132,6 +94,8 @@ export default InscriptionMobile
                         className="w3-input w3-border" 
                         required
                         fullWidth
+                        onPaste={handlepaste}
+				        onKeyPress={handlekeypress}
                         id="password"
                         type='password'
                         name="passwordcon"
@@ -140,5 +104,24 @@ export default InscriptionMobile
                         placeholder="*********"/>
                     </p>
              </IonCol>
-            */
+            <IonCol  size="10" className="container">
+             <p className='centerbtn'> 
+              <Button
+               type="submit"
+               style={{
+               color:"white",
+               backgroundColor: "#4B0082",}} variant="contained" >
+               Valider </Button>
+            </p>
+             
+             </IonCol>
+               </IonRow>
+               </IonGrid>
+               </form>
+           <CarouselLog/> 
+  </div>
+	)
 }
+
+
+export default FinalisationInscriptionMobile

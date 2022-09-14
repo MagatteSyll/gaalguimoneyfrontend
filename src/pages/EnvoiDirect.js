@@ -5,8 +5,10 @@ import EnvoiDirectDesk from '../component/desktop/EnvoiDirectDesk';
 import {Link} from 'react-router-dom'
 import {toast } from 'react-toastify'
 import {useHistory} from 'react-router-dom'
+import axios from 'axios'
 
 
+//mamylo26
 
 function EnvoiDirect() { 
 
@@ -14,18 +16,13 @@ function EnvoiDirect() {
   const history=useHistory() 
   const  [data, setdata] = useState({
         phone:'',
-        sum:''
+  
     })
   const err = () => toast.error("Veuillez entrer des donnees valides!",{
     position:toast.POSITION.TOP_CENTER,
     autoClose:false 
     });
-  const handledata=e=>{
-    //console.log(e.target.value)
-    setdata({
-    ...data,[e.target.name]:e.target.value.trim()
-    })
-    }
+
    const handlephone=e=>{
     //console.log(e.target.value)
     setdata({
@@ -35,20 +32,25 @@ function EnvoiDirect() {
 
    const handlesubmit=e=>{
        e.preventDefault()
-      // console.log(data)
-       if(data.phone===""||data.sum<=0||data.sum===""){
+      // console.log(data.phone)
+       if(data.phone===""||data.phone===null){
         err()
         return;
        }
-       const phone="+"+data.phone
+      // const phone="+"+data.phone
       // console.log(phone)
-       axiosInstance
-       .post('client/verifenvoi/',{
-        phone:phone,
-        somme:data.sum
-       })
+      // axiosInstance
+       axios
+      .post('http://127.0.0.1:8000/api/client/verifynumb/',{num:data.phone},
+       {headers:{
+       'Authorization': `JWT ${localStorage.getItem('__jmdf__')}`
+          }})
+      // .post('client/verifynumb/',{
+       // phone:phone,
+      // })
        .then(res=>{
-        history.push(`/confirmationenvoidirect/${res.data.id}/${res.data.prenom+""+res.data.nom}`)
+        console.log(res.data)
+        history.push(`/confirmationsommenvoidirect/${res.data.id}`)
        })
       .catch(()=>{
         err()
@@ -88,10 +90,10 @@ const retour=()=>{
 
  return (
  <Fragment>
-  <EnvoiDirectDesk handlesubmit={handlesubmit} handledata={handledata} pays={pays} setdata= {setdata}
+  <EnvoiDirectDesk handlesubmit={handlesubmit}  pays={pays} setdata= {setdata}
    handlepaste={handlepaste} handlekeypress={handlekeypress}  data={data} handlephone={handlephone}
    retour={retour} />
-  <EnvoiDirectMobile handlesubmit={handlesubmit} handledata={handledata}  pays={pays} setdata= {setdata}
+  <EnvoiDirectMobile handlesubmit={handlesubmit}   pays={pays} setdata= {setdata}
   handlepaste={handlepaste} handlekeypress={handlekeypress} data={data}
   handlephone={handlephone} retour={retour}
    />

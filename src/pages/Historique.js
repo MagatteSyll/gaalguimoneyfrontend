@@ -21,13 +21,13 @@ function Historique(props) {
   
 
     useEffect(()=>{  
-    //axiosInstance
-    axios
-    .get('http://127.0.0.1:8000/api/client/message/',
+    axiosInstance
+   // axios
+  /*  .get('http://127.0.0.1:8000/api/client/message/',
     {headers:{
   'Authorization': `JWT ${localStorage.getItem('__jmdf__')}`
-    }})
-   // .get('client/message/')
+    }})*/
+   .get('client/message/')
   .then(res=>{
     setmessages(res.data.results)
     setcount(Math.ceil((res.data.count)/15))
